@@ -90,16 +90,16 @@
             ' the color is obtained from the top left (bx,by) of the picture
 
             Pict1 = PicA.Image
-
-            PixelColor = Pict1.getpixel(x(4, 0), y(4, 0))    'usual case gets actual color
-            If PixelColor.ToArgb = Color.Black.ToArgb Then
-                Label1.Text = "black"
-                Vx(4) *= -1
-                If x(4, 0) < 0 Then
-                    Vx(4) *= -1
+            For C As Integer = 1 To 7
+                PixelColor = Pict1.getpixel(x(C, 0), y(C, 0))    'usual case gets actual color
+                If PixelColor.ToArgb = Color.Black.ToArgb Then
+                    Label1.Text = "black"
+                    Vx(C) *= -1
+                    If x(C, 0) < 45 Then
+                        Vx(C) *= -1
+                    End If
                 End If
-            End If
-
+            Next
 
 
             If RadSQ.Checked = True Then
